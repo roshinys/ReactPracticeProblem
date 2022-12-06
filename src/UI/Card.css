@@ -1,0 +1,9 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: rebeccapurple;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border: 1px solid #ccc;
+}

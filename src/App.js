@@ -1,23 +1,22 @@
-import React, { useState } from "react";
-import AddUser from "./Components/AddUser.js";
-import User from "./Components/User.js";
-import Card from "./UI/Card.js";
+import React, { useState, Fragment } from "react";
+import AddUser from "./Components/Users/AddUser";
+import Users from "./Components/Users/Users";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const addUserHandler = (user) => {
-    setUsers((prevState) => {
+  const [usersList, setUsersList] = useState([]);
+  const addUserHandler = (uName, uAge) => {
+    setUsersList((prevUsersList) => {
       return [
-        ...prevState,
-        { id: prevState.length, name: user.name, age: user.age },
+        ...prevUsersList,
+        { name: uName, age: uAge, id: Math.random().toString() },
       ];
     });
   };
   return (
-    <Card className="app">
+    <Fragment>
       <AddUser onAddUser={addUserHandler} />
-      <User users={users} />
-    </Card>
+      <Users users={usersList} />
+    </Fragment>
   );
 }
 
